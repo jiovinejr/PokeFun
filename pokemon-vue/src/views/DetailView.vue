@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pokemon-detail></pokemon-detail>
+    <pokemon-detail :id="$route.params.id"></pokemon-detail>
   </div>
 </template>
 

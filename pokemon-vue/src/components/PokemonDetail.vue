@@ -1,6 +1,8 @@
 <template>
   <div>
-
+        <h2>{{ pokemon.name }}</h2>
+        <p>Height: {{ pokemon.height }}  Weight: {{ pokemon.weight }}</p>   
+        <img :src="picture">
   </div>
 </template>
 
@@ -12,13 +14,15 @@ export default {
     },
     data() {
         return{
-            pokemon: {}
+            pokemon: {},
+            picture: ""
         }
     },
     created(){
         service.getPokemonDetail(this.id)
         .then ((response) => {
-            this.pokemon = response.data
+            this.pokemon = response.data;
+            this.picture = response.data.sprites.front_default;
         })
     }
 }
